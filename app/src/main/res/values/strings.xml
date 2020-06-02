@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ACookBookApp</string>
+    <string name="add_image">Add Image</string>
+    <string name="ingredient_title">Ingredients</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="remove_ingredient">Press on ingredient to remove it</string>
+    <string-array name="categories">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+    </string-array>
+    <string-array name="time_to_make">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+    </string-array>
+    <string-array name="difficulty">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+    <string name="multi_line"> --   Add your instructions here</string>
+    <string name="name"> Names</string>
+</resources>

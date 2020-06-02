@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#EBEDE8E8">
+
+    <TextView
+        android:id="@+id/userTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Created Recipes"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="30sp"
+/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_recipes"
+        android:layout_below="@id/userTitle"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+</RelativeLayout>
