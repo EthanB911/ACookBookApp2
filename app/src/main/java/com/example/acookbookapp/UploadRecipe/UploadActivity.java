@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.acookbookapp.MainMenu.MainActivity;
 import com.example.acookbookapp.R;
 import com.example.acookbookapp.SqLite.SQLiteHelper;
+import com.example.acookbookapp.login_register.login;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class UploadActivity extends AppCompatActivity {
             });
            back.setText("Cancel");
 
-            SharedPreferences settings = getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+            SharedPreferences settings = getSharedPreferences(login.MyPREFERENCES, Context.MODE_PRIVATE);
            userId = settings.getString("idKey", "");
 
             next = findViewById(R.id.next);

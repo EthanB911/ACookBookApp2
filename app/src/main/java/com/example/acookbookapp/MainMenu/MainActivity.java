@@ -13,9 +13,9 @@ import com.example.acookbookapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String IdKey = "idKey";
-    public static final String MyPREFERENCES = "MyPrefs" ;
-    SharedPreferences sharedpreferences;
+//    public static final String IdKey = "idKey";
+//    public static final String MyPREFERENCES = "MyPrefs" ;
+//    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        ViewPager2 viewPager2 = findViewById(R.id.fragment_container);
 //        viewPager2.setAdapter(new MainPagerAdapter(this));
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        createSession("2");
+//        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+//        createSession("2");
 
         //bottom navigation view is used to display the bottom toolbar where users can navigate between 3 fragments
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
     }
-    public void createSession(String userId){
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-
-        editor.putString(IdKey, userId);
-        editor.commit();
-    }
+//    public void createSession(String userId){
+//        SharedPreferences.Editor editor = sharedpreferences.edit();
+//
+//        editor.putString(IdKey, userId);
+//        editor.commit();
+//    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {

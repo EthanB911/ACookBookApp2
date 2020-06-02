@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,6 +22,7 @@ import com.example.acookbookapp.ListRecipe.ListAdapter;
 import com.example.acookbookapp.ListRecipe.ListItem;
 import com.example.acookbookapp.R;
 import com.example.acookbookapp.SqLite.SQLiteHelper;
+import com.example.acookbookapp.login_register.login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,15 +38,18 @@ View view;
     private List<ListItem> listItems;
     SQLiteHelper myDb;
     String userId;
+    Button logout;
+    TextView user;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user, container, false);
-
-
-        SharedPreferences settings = getActivity().getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        logout = (Button)view.findViewById(R.id.logout);
+        user = (TextView)  view.findViewById(R.id.name);
+        SharedPreferences settings = getActivity().getSharedPreferences(login.MyPREFERENCES, Context.MODE_PRIVATE);
         userId = settings.getString("idKey", "");
+        user.setText(userId);
         //get recycler view
         recyclerView   = (RecyclerView)view.findViewById(R.id.user_recipes);
         recyclerView.setHasFixedSize(true);
@@ -85,6 +92,23 @@ View view;
             recyclerView.setAdapter(adapterR);
         }
 
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Finishing current DashBoard activity on button click.
+                SharedPreferences sharedpreferences = getActivity().getSharedPreferences(login.MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.commit();
+                getActivity().finish();
+
+                Toast.makeText(view.getContext(),"Log Out Successfull", Toast.LENGTH_LONG).show();
+
+            }
+        });
         return view;
     }
 }

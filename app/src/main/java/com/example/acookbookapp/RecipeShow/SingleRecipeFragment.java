@@ -26,6 +26,7 @@ import com.example.acookbookapp.MainMenu.MainActivity;
 import com.example.acookbookapp.R;
 import com.example.acookbookapp.SqLite.SQLiteHelper;
 import com.example.acookbookapp.UploadRecipe.UploadActivity;
+import com.example.acookbookapp.login_register.login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public class SingleRecipeFragment extends  Fragment{
         String id=this.getArguments().getString("id").toString();
 
 
-        SharedPreferences settings = getActivity().getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences settings = getActivity().getSharedPreferences(login.MyPREFERENCES, Context.MODE_PRIVATE);
         userId = settings.getString("idKey", "");
 
        recyclerView = (RecyclerView)view.findViewById(R.id.ingredients_recycler);
