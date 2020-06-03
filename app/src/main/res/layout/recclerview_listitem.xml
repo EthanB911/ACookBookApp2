@@ -5,13 +5,19 @@
     
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp">
 
-
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+<LinearLayout
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
         <LinearLayout
             android:padding="8dp"
             android:orientation="vertical"
@@ -38,8 +44,26 @@
                 android:id="@+id/recipeID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Id"   />§
+                android:text="Id"
+                android:visibility="gone"
+        />
 <!--                android:visibility="invisible"-->
+        </LinearLayout>
+
+</LinearLayout>
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="visible"
+       >
+                <ImageView
+                    android:id="@+id/listimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:visibility="visible"/>
+            </LinearLayout>
 
             
         </LinearLayout>

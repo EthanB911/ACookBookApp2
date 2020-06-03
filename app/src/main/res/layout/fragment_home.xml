@@ -6,27 +6,22 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="125dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="30dp"
         android:text="View All Recipes" />
 
     <GridLayout
         android:id="@+id/mainRecyclerView"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
+        android:layout_height="700dp"
         android:layout_below="@id/button">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical" android:layout_width="match_parent"
@@ -35,18 +30,18 @@
             android:orientation="horizontal" android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageButton
-            android:id="@+id/salads"
+            android:id="@+id/romantic"
             android:layout_width="180dp"
             android:layout_height="130dp"
-            android:src="@drawable/salad"
+            android:src="@drawable/romantic"
             android:layout_marginLeft="10dp"
             android:scaleType="fitXY"/>
             <ImageButton
-                android:id="@+id/romantic"
+                android:id="@+id/desert"
                 android:layout_width="180dp"
                 android:layout_height="130dp"
                 android:layout_marginLeft="30dp"
-                android:src="@drawable/salad"
+                android:src="@drawable/desert"
                 android:scaleType="fitXY"/>
         </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -54,18 +49,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp">
                 <ImageButton
-                    android:id="@+id/snacks"
+                    android:id="@+id/salads"
                     android:layout_width="180dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/salad"
+                    android:src="@drawable/salads2"
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"/>
                 <ImageButton
-                    android:id="@+id/deserts"
+                    android:id="@+id/snacks"
                     android:layout_width="180dp"
                     android:layout_height="130dp"
                     android:layout_marginLeft="30dp"
-                    android:src="@drawable/salad"
+                    android:src="@drawable/snacks"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+                <ImageButton
+                    android:id="@+id/pizza"
+                    android:layout_width="180dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/pizza"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"/>
+                <ImageButton
+                    android:id="@+id/pasta"
+                    android:layout_width="180dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/pasta"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+                <ImageButton
+                    android:id="@+id/mexican"
+                    android:layout_width="180dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/mexican"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"/>
+                <ImageButton
+                    android:id="@+id/grill"
+                    android:layout_width="180dp"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/grill"
                     android:scaleType="fitXY"/>
             </LinearLayout>
 

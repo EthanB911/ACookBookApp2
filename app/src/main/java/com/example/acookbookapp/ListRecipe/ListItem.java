@@ -5,12 +5,13 @@ public class ListItem {
     private String head;
     private String desc;
     private String id;
-    public ListItem(String id, String head, String desc)
+    public byte[] image;
+    public ListItem(String id, String head, String desc,   byte[] image)
     {
         this.id =id;
         this.head= head;
         this.desc = desc;
-
+        this.image = image;
     }
 
 
@@ -25,4 +26,5 @@ public class ListItem {
     public String getId() {
         return id;
     }
+    public byte[] getImage(){ return image; }
 }

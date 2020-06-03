@@ -1,10 +1,13 @@
 package com.example.acookbookapp.MainMenu;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +28,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
 
     private List<ListItem> listItems;
     private Context context;
-
+    Bitmap bitmap;
     public UserListAdapter(List<ListItem> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
@@ -48,6 +51,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
             holder.textViewHead.setText(listItem.getHead());
             holder.textViewDesc.setText(listItem.getDesc());
             holder.textViewId.setText(listItem.getId());
+            byte[] image= listItem.getImage();
+            if(image != null)
+                bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            holder.imgView.setImageBitmap(bitmap);
 
     }
 
@@ -63,12 +70,14 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
         public TextView textViewHead;
         public TextView textViewDesc;
         public TextView textViewId;
+        public ImageView imgView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewHead = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc= (TextView) itemView.findViewById(R.id.textViewDesc);
             textViewId= (TextView) itemView.findViewById(R.id.recipeID);
+            imgView = (ImageView)itemView.findViewById(R.id.listimage);
             itemView.setOnClickListener(this);
         }
 

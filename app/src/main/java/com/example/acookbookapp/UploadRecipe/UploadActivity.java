@@ -160,6 +160,7 @@ public class UploadActivity extends AppCompatActivity {
         }
 
     public static byte[] imageViewToByte(ImageView image) {
+            //method to turn image into an array of type byte so that it can be stored in db as blob
         Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);

@@ -16,23 +16,73 @@ import com.example.acookbookapp.R;
 
 public class HomeFragment extends Fragment {
     //for now categories are hard coded as in there is not table in db that has list of categories.
-    ImageButton salads;
+    ImageButton romantic, deserts, salads, snacks, pizza, pasta, mexican, grill;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Button showall = (Button)view.findViewById(R.id.button);
+        romantic = (ImageButton)view.findViewById(R.id.romantic);
+        deserts = (ImageButton)view.findViewById(R.id.desert);
         salads = (ImageButton)view.findViewById(R.id.salads);
+        snacks = (ImageButton)view.findViewById(R.id.snacks);
+        pizza = (ImageButton)view.findViewById(R.id.pizza);
+        pasta = (ImageButton)view.findViewById(R.id.pasta);
+        mexican = (ImageButton)view.findViewById(R.id.mexican);
+        grill = (ImageButton)view.findViewById(R.id.grill);
+
         showall.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 viewAllRecipes(v);
             }
         });
+        romantic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Romantic");
+            }
+        });
+        deserts.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Desert");
+            }
+        });
         salads.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                viewRecipes("One");
+                viewRecipes("Salad");
+            }
+        });
+        snacks.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Snack");
+            }
+        });
+        pizza.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Pizza");
+            }
+        });
+        pasta.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Pasta");
+            }
+        });
+        grill.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Grill");
+            }
+        });
+        mexican.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                viewRecipes("Mexican");
             }
         });
         return view;

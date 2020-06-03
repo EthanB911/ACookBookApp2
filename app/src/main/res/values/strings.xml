@@ -5,11 +5,13 @@
     <string name="instructions_title">Instructions</string>
     <string name="remove_ingredient">Press on ingredient to remove it</string>
     <string-array name="categories">
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
+        <item>Romantic</item>
+        <item>Desert</item>
+        <item>Snack</item>
+        <item>Pizza</item>
+        <item>Pasta</item>
+        <item>Grill</item>
+        <item>Mexican</item>
     </string-array>
     <string-array name="time_to_make">
         <item>One</item>
