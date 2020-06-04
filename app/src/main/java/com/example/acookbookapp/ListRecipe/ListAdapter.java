@@ -47,8 +47,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             //to show these properties for each item in a list
             holder.textViewHead.setText(listItem.getHead());
-            holder.textViewDesc.setText(listItem.getDesc());
+            holder.textViewDesc.setText("Difficulty: " + listItem.getDesc());
             holder.textViewId.setText(listItem.getId());
+            holder.time.setText("Time: " +listItem.getTime());
             byte[] image= listItem.getImage();
             if(image != null)
                 bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
@@ -68,6 +69,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public TextView textViewHead;
         public TextView textViewDesc;
         public TextView textViewId;
+        public TextView time;
         public ImageView imgView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -75,6 +77,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             textViewHead = (TextView) itemView.findViewById(R.id.textViewHead);
             textViewDesc= (TextView) itemView.findViewById(R.id.textViewDesc);
             textViewId= (TextView) itemView.findViewById(R.id.recipeID);
+            time = (TextView)itemView.findViewById(R.id.time);
             imgView = (ImageView)itemView.findViewById(R.id.listimage);
             itemView.setOnClickListener(this);
         }

@@ -49,8 +49,9 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
 
             //to show these properties for each item in a list
             holder.textViewHead.setText(listItem.getHead());
-            holder.textViewDesc.setText(listItem.getDesc());
+            holder.textViewDesc.setText("Difficulty: " + listItem.getDesc());
             holder.textViewId.setText(listItem.getId());
+            holder.time.setText("Time: " +listItem.getTime());
             byte[] image= listItem.getImage();
             if(image != null)
                 bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
@@ -70,6 +71,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
         public TextView textViewHead;
         public TextView textViewDesc;
         public TextView textViewId;
+        public TextView time;
         public ImageView imgView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -78,6 +80,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
             textViewDesc= (TextView) itemView.findViewById(R.id.textViewDesc);
             textViewId= (TextView) itemView.findViewById(R.id.recipeID);
             imgView = (ImageView)itemView.findViewById(R.id.listimage);
+            time = (TextView)itemView.findViewById(R.id.time);
             itemView.setOnClickListener(this);
         }
 

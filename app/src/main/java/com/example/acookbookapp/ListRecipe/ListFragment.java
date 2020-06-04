@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -26,7 +27,7 @@ public class ListFragment extends Fragment {
     ArrayAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapterR;
-
+    TextView cat;
     private List<ListItem> listItems;
     SQLiteHelper myDb;
     @Nullable
@@ -36,6 +37,7 @@ public class ListFragment extends Fragment {
 
         //get recycler view
         recyclerView   = (RecyclerView)view.findViewById(R.id.recycler_view);
+        cat = (TextView)view.findViewById(R.id.cat);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         //get category from listclass activity
@@ -53,7 +55,9 @@ public class ListFragment extends Fragment {
 //            listItems.add(li);
 //        }
         //check if an actual category is passed or if user asked to show all recipes.
-    if (category!= "All" ){
+    if (category.equals("All") ){
+
+        cat.setText("All Recipes");
         //not category is passed get all recipes
         Cursor res = myDb.getAllDataRecipe();
         while (res.moveToNext()) {
@@ -61,13 +65,15 @@ public class ListFragment extends Fragment {
             ListItem li = new ListItem(
                     res.getString(0),
                     res.getString(1),
-                    res.getString(2),
-                    res.getBlob(7)
+                    res.getString(5),
+                    res.getBlob(7),
+                    res.getString(4)
             );
 
             listItems.add(li);
         }
     }else{
+        cat.setText("Recipes for " + category);
         //get all recipes under selected category
         Cursor res = myDb.getAllRecipesByCategory(category);
         while (res.moveToNext()) {
@@ -76,7 +82,8 @@ public class ListFragment extends Fragment {
                     res.getString(0),
                     res.getString(1),
                     res.getString(2),
-                    res.getBlob(7)
+                    res.getBlob(7),
+                    res.getString(4)
             );
 
             listItems.add(li);

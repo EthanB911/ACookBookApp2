@@ -78,7 +78,8 @@ View view;
                         res.getString(0),
                         res.getString(1),
                         res.getString(2),
-                        res.getBlob(7)
+                        res.getBlob(7),
+                        res.getString(4)
                 );
 
                 listItems.add(li);

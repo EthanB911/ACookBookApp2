@@ -34,7 +34,13 @@
         android:orientation="vertical"
         >
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Instructions"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <EditText
             android:id="@+id/editTex2"

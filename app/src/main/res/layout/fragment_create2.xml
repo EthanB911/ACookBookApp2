@@ -45,7 +45,7 @@
             android:inputType="textPersonName"
             android:hint="Add ingredients"
             android:layout_gravity="center"
-            android:digits="abcdefghijklmnopqrstuvwxyz"/>
+            android:digits="abcdefghijklmnopqrstuvwxyz1234567890."/>
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/floatingActionButton"

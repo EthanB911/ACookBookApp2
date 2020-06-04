@@ -14,11 +14,11 @@
         <item>Mexican</item>
     </string-array>
     <string-array name="time_to_make">
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
+        <item>30 min</item>
+        <item>1 hour</item>
+        <item>1.5 hours</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
     </string-array>
     <string-array name="difficulty">
         <item>Low</item>
@@ -26,5 +26,5 @@
         <item>High</item>
     </string-array>
     <string name="multi_line"> --   Add your instructions here</string>
-    <string name="name"> Names</string>
+    <string name="name"> Name</string>
 </resources>

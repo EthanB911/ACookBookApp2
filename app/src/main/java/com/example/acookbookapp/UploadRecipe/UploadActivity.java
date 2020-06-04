@@ -38,8 +38,8 @@ public class UploadActivity extends AppCompatActivity {
     Fragment fragment4;
     ArrayList<String> ingredientListMain;
     EditText nam, instruc;
-    Spinner cat, diff;
-    String name, ingredients, instructions, category, difficulty;
+    Spinner cat, diff, tim;
+    String name, ingredients, time,  instructions, category, difficulty;
     byte[] img;
     ImageView imageView;
     SQLiteHelper myDb;
@@ -121,7 +121,10 @@ public class UploadActivity extends AppCompatActivity {
             }else if(frag == fragment4){
                 //get time and difficulty and try to add recipe.
                 diff = (Spinner) frag.getActivity().findViewById(R.id.difficulty) ;
+                tim = (Spinner) frag.getActivity().findViewById(R.id.time) ;
                 difficulty= diff.getSelectedItem().toString();
+                difficulty= diff.getSelectedItem().toString();
+                time= tim.getSelectedItem().toString();
 
                 imageView= (ImageView)frag.getActivity().findViewById(R.id.imageView);
                 //check if all fields have been filled prior to attempting to create a recipe
@@ -171,7 +174,7 @@ public class UploadActivity extends AppCompatActivity {
     public boolean save(){
         boolean isInserted = myDb.insertDataRecipe(name,
                 ingredients,
-                instructions, " 9", difficulty, category, img, userId );
+                instructions, time, difficulty, category, img, userId );
         if(isInserted == true)
             Toast.makeText(UploadActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
         else
