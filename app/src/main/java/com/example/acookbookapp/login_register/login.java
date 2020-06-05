@@ -139,7 +139,7 @@ public class login extends AppCompatActivity {
             if(TempPassword.equalsIgnoreCase(PasswordHolder))
             {
 
-                Toast.makeText(login.this,"Login Successfully",Toast.LENGTH_LONG).show();
+
 
                 // Going to main activity after login success message.
                 Intent intent = new Intent(login.this, MainActivity.class);
@@ -147,6 +147,7 @@ public class login extends AppCompatActivity {
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(IdKey, EmailHolder);
                 createSession(EmailHolder);
+                Toast.makeText(login.this,"Login Successfully",Toast.LENGTH_LONG).show();
                 startActivity(intent);
 
 

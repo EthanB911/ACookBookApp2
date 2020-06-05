@@ -11,21 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login_register.login">
+        <activity android:name=".login_register.login" android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login_register.RegisterActivity">
+        <activity android:name=".login_register.RegisterActivity"
+            android:label="Register">
         </activity>
         <activity
             android:name=".ListRecipe.ListActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"  android:label="Recipes"/>
         <activity
             android:name=".UploadRecipe.UploadActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"  android:label="Add Recipe"/>
         <activity android:name=".MainMenu.MainActivity">
 
         </activity>

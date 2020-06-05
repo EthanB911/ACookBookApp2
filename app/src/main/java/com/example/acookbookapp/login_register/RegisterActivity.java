@@ -86,10 +86,11 @@ public class RegisterActivity extends AppCompatActivity {
             sqLiteDatabaseObj.close();
 
             // Printing toast message after done inserting.
-            Toast.makeText(RegisterActivity.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
+
             createSession(EmailHolder);
             // Going to main activity after login success message.
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            Toast.makeText(RegisterActivity.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
         // This block will execute if any of the registration EditText is empty.
