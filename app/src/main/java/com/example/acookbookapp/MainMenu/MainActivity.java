@@ -32,6 +32,9 @@ SQLiteHelper myDb;
         //bottom navigation view is used to display the bottom toolbar where users can navigate between 3 fragments
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        //seed data if no data is found
+        //ideally move this method in db upon creation
         myDb = new SQLiteHelper(this);
         Cursor res = myDb.getAllDataRecipe();
         if (!(res.moveToFirst()) || res.getCount() ==0){
@@ -44,13 +47,8 @@ SQLiteHelper myDb;
                     new HomeFragment()).commit();
         }
     }
-//    public void createSession(String userId){
-//        SharedPreferences.Editor editor = sharedpreferences.edit();
-//
-//        editor.putString(IdKey, userId);
-//        editor.commit();
-//    }
 
+    //cases to check which fragment to direct user to
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

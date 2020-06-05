@@ -68,9 +68,9 @@ View view;
 //
 //            listItems.add(li);
 //        }
-        //check if an actual category is passed or if user asked to show all recipes.
 
-            //not category is passed get all recipes
+
+        //show recipes that current logged in user created
             Cursor res = myDb.getAllRecipesByUserId(userId);
             while (res.moveToNext()) {
 
@@ -95,7 +95,7 @@ View view;
         }
 
 
-
+        //button to log out user
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

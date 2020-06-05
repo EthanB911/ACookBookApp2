@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
+//not being used
 //public class MainPagerAdapter extends FragmentStateAdapter {
 //    public MainPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
 //        super(fragmentActivity);
