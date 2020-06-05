@@ -1,6 +1,8 @@
 package com.example.acookbookapp.ListRecipe;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.acookbookapp.R;
 import com.example.acookbookapp.SqLite.SQLiteHelper;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +30,7 @@ public class ListFragment extends Fragment {
     ArrayAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapterR;
-    TextView cat;
+    TextView cat, empty;
     private List<ListItem> listItems;
     SQLiteHelper myDb;
     @Nullable
@@ -38,6 +41,7 @@ public class ListFragment extends Fragment {
         //get recycler view
         recyclerView   = (RecyclerView)view.findViewById(R.id.recycler_view);
         cat = (TextView)view.findViewById(R.id.cat);
+        empty = (TextView)view.findViewById(R.id.empty);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         //get category from listclass activity
@@ -55,11 +59,25 @@ public class ListFragment extends Fragment {
 //            listItems.add(li);
 //        }
         //check if an actual category is passed or if user asked to show all recipes.
+//        myDb.seed();
+//        Bitmap myLogo = BitmapFactory.decodeResource(this.getContext().getResources(), R.drawable.pancake);
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        myLogo.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//        byte[] byteArray = stream.toByteArray();
+
     if (category.equals("All") ){
 
         cat.setText("All Recipes");
         //not category is passed get all recipes
+
         Cursor res = myDb.getAllDataRecipe();
+        if ( res.getCount() ==0){
+            //cursor is empty
+            empty.setText("There are no recipes inputted yet");
+            empty.setVisibility(View.VISIBLE);
+        }else{
+            empty.setVisibility(View.GONE);
+        }
         while (res.moveToNext()) {
 
             ListItem li = new ListItem(
@@ -76,6 +94,13 @@ public class ListFragment extends Fragment {
         cat.setText("Recipes for " + category);
         //get all recipes under selected category
         Cursor res = myDb.getAllRecipesByCategory(category);
+        if (res.getCount() ==0){
+            //cursor is empty
+           empty.setText("There are no recipes under "+ category);
+           empty.setVisibility(View.VISIBLE);
+        }else{
+            empty.setVisibility(View.GONE);
+        }
         while (res.moveToNext()) {
 
             ListItem li = new ListItem(

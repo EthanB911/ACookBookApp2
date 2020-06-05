@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBEDE8E8">
+    android:background="@android:color/white">
 <!--<LinearLayout-->
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="match_parent"-->
@@ -71,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginTop="35dp"
-                    android:background="#EBDAD7D7">
+                    android:background="@android:color/white">
                 </ListView>
             <!--            <EditText-->
 <!--                android:id="@+id/editText2"-->

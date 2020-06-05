@@ -2,6 +2,7 @@ package com.example.acookbookapp.MainMenu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -10,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.acookbookapp.R;
+import com.example.acookbookapp.SqLite.SQLiteHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 //    public static final String IdKey = "idKey";
 //    public static final String MyPREFERENCES = "MyPrefs" ;
 //    SharedPreferences sharedpreferences;
+SQLiteHelper myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         //bottom navigation view is used to display the bottom toolbar where users can navigate between 3 fragments
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+        myDb = new SQLiteHelper(this);
+        Cursor res = myDb.getAllDataRecipe();
+        if (!(res.moveToFirst()) || res.getCount() ==0){
+            //cursor is empty
+            myDb.seed();
+        }
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

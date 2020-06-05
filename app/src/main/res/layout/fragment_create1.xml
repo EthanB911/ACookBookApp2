@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="create1"
-    android:background="#EBEDE8E8">
+    android:background="@android:color/white">
 
 
 

@@ -133,13 +133,16 @@ public class UploadActivity extends AppCompatActivity {
                    img = imageViewToByte(imageView);
                 else {
                     img = null;
-                    Toast.makeText(UploadActivity.this,"No image given",Toast.LENGTH_LONG).show();
+//                    Toast.makeText(UploadActivity.this,"No image given",Toast.LENGTH_LONG).show();
                 }
-                if((name.length() == 0) || (instructions.length() == 0)) {
+                //check that recipe can be added.. name, instructions and image not empty..
+                if((name.length() == 0) || (instructions.length() == 0) || img == null) {
                     if(name.length() == 0)
                         Toast.makeText(UploadActivity.this,"Name is empty",Toast.LENGTH_LONG).show();
                     if(instructions.length() == 0)
                         Toast.makeText(UploadActivity.this,"Instructions empty",Toast.LENGTH_LONG).show();
+                    if(img == null)
+                        Toast.makeText(UploadActivity.this,"Please add an image",Toast.LENGTH_LONG).show();
                 }else{
 
                     save();
@@ -176,9 +179,9 @@ public class UploadActivity extends AppCompatActivity {
                 ingredients,
                 instructions, time, difficulty, category, img, userId );
         if(isInserted == true)
-            Toast.makeText(UploadActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadActivity.this,"Recipe not added",Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(UploadActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadActivity.this,"An error occured",Toast.LENGTH_LONG).show();
 
         return isInserted;
     }

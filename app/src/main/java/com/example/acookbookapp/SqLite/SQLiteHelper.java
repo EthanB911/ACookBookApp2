@@ -6,10 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+
+import com.example.acookbookapp.R;
+
+import java.io.ByteArrayOutputStream;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     //2 tables
     //user and recipe
+    public Context context;
     static String DATABASE_NAME="UserDataBase";
 
     public static final String User="UserTable";
@@ -43,12 +51,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public SQLiteHelper(Context context) {
 
         super(context, DATABASE_NAME, null, 6);
+        // Application Context
+        this.context = context.getApplicationContext();
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-
+    //table 1 is for users table
+        //table 2 is for recipes with a foreign key to user that create it
         String CREATE_TABLE1="CREATE TABLE IF NOT EXISTS "+User+" ("+User_Column_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+User_Column_1_Name+" VARCHAR, "+User_Column_2_Email+" VARCHAR, "+User_Column_3_Password+" VARCHAR)";
         String CREATE_TABLE2="CREATE TABLE IF NOT EXISTS "+Recipe+" ("+Recipe_Column_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+Recipe_Column_1_Name+" VARCHAR, "+Recipe_Column_2_Ingredients+" VARCHAR, "+Recipe_Column_3_Instructions+" VARCHAR, "+Recipe_Column_4_Time+" VARCHAR, "+Recipe_Column_4_Diff+" VARCHAR, "+Recipe_Column_4_Cat+" VARCHAR, "+Recipe_Column_4_Img+" BLOB, "+Recipe_User_Id+" VARCHAR,"+"FOREIGN KEY(userID) REFERENCES UserTable(id) )";
         database.execSQL(CREATE_TABLE1);
@@ -56,6 +67,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String addUser = "INSERT INTO UserTable VALUES(1, 'ethan', 'ebriffa', '911')";
 
         database.execSQL(addUser);
+
     }
 
     @Override
@@ -64,9 +76,51 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+Recipe);
         onCreate(db);
 
+
+
     }
 
 
+//method to seed data in recipes if no recipes are found in db
+    public void seed(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Bitmap myLogo = BitmapFactory.decodeResource(context.getResources(), R.drawable.pancake);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        myLogo.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+
+        ContentValues val1 = this.seedvalues("Pancake", "ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,ingredient6","First crack ingredient 1 and mix into bowl until \nThen place ingredient2 and continue mixing with ingreident1\nThen wait until..", "30min", "Medium", "Desert", byteArray, "1");
+
+       Bitmap myLogo2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.pizza2);
+        ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+        myLogo2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+        byte[] byteArray2 = stream2.toByteArray();
+        ContentValues val2 = this.seedvalues("Pizza", "ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,ingredient6","these\ninst\nructions", "30min", "Medium", "Pizza", byteArray2, "1");
+
+        Bitmap myLogo3 = BitmapFactory.decodeResource(context.getResources(), R.drawable.pasta2);
+        ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
+        myLogo3.compress(Bitmap.CompressFormat.PNG, 100, stream3);
+        byte[] byteArray3 = stream3.toByteArray();
+        ContentValues val3 = this.seedvalues("Pasta", "ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,ingredient6","these\ninst\nructions", "30min", "Medium", "Pasta", byteArray3, "1");
+        db.insert(Recipe,null ,val1);
+        db.insert(Recipe,null ,val2);
+        db.insert(Recipe,null ,val3);
+    }
+
+    public ContentValues seedvalues(String name,String ing,String instr,String time,String diff, String cat, byte[] image, String userId)
+    {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Recipe_Column_1_Name,name);
+        contentValues.put(Recipe_Column_2_Ingredients,ing);
+        contentValues.put(Recipe_Column_3_Instructions,instr);
+        contentValues.put(Recipe_Column_4_Time,time);
+        contentValues.put(Recipe_Column_4_Diff,diff);
+        contentValues.put(Recipe_Column_4_Cat,cat);
+        contentValues.put(Recipe_Column_4_Img, image);
+        contentValues.put(Recipe_User_Id, userId);
+
+        return contentValues;
+    }
 
         //method to insert data for recipe
     public boolean insertDataRecipe(String name,String ing,String instr,String time,String diff, String cat, byte[] image, String userId) {
