@@ -179,7 +179,7 @@ public class UploadActivity extends AppCompatActivity {
                 ingredients,
                 instructions, time, difficulty, category, img, userId );
         if(isInserted == true)
-            Toast.makeText(UploadActivity.this,"Recipe not added",Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadActivity.this,"Recipe added",Toast.LENGTH_LONG).show();
         else
             Toast.makeText(UploadActivity.this,"An error occured",Toast.LENGTH_LONG).show();
 
