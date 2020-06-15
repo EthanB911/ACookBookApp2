@@ -77,7 +77,7 @@ View view;
                 ListItem li = new ListItem(
                         res.getString(0),
                         res.getString(1),
-                        res.getString(2),
+                        res.getString(5),
                         res.getBlob(7),
                         res.getString(4)
                 );
